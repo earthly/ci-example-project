@@ -6,7 +6,10 @@ steps:
       - +docker
     env:
       - 'NETWORK_MODE=host'
-  - id: 'gcp-credentials'
-    name: 'gcr.io/cloud-builders/gsutil'
+  - id: 'gcp-test'
+    name: 'earthly/earthly:v0.5.24'
     args:
-      - ls
+      - --allow-privileged
+      - +gcp-cloudbuild
+    env:
+      - 'NETWORK_MODE=host'

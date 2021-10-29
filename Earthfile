@@ -17,3 +17,7 @@ docker:
     COPY +build/go-example .
     ENTRYPOINT ["/go-example/go-example"]
     SAVE IMAGE --push earthly/examples:go
+
+gcp-cloudbuild:
+    FROM gcr.io/cloud-builders/gsutil
+    RUN gsutil ls
