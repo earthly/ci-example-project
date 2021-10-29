@@ -20,4 +20,4 @@ docker:
 
 gcp-cloudbuild:
     FROM gcr.io/cloud-builders/gsutil
-    RUN gsutil ls
+    RUN gsutil ls -p earthly-tutorial
