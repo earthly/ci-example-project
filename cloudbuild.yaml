@@ -1,0 +1,12 @@
+steps:
+  - id: 'build'
+    name: 'earthly/earthly:v0.5.24'
+    args:
+      - --allow-privileged
+      - +docker
+    env:
+      - 'NETWORK_MODE=host'
+  - id: 'gcp-credentials'
+    name: 'gcr.io/cloud-builders/gsutil'
+    args:
+      - ls
