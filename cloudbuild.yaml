@@ -11,7 +11,8 @@ steps:
       - +gcp-cloudbuild
     secretEnv:
       - 'EARTHLY_TOKEN'
-    availableSecrets:
-      secretManager:
-      - versionName: projects/earthly-jupyterlab/secrets/EARTHLY_TOKEN/versions/1
-        env: 'EARTHLY_TOKEN'
+    
+availableSecrets:
+  secretManager:
+  - versionName: projects/earthly-jupyterlab/secrets/EARTHLY_TOKEN/versions/1
+    env: 'EARTHLY_TOKEN'
