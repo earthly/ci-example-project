@@ -14,5 +14,5 @@ steps:
     
 availableSecrets:
   secretManager:
-  - versionName: projects/earthly-jupyterlab/secrets/EARTHLY_TOKEN/versions/1
+  - versionName: projects/earthly-jupyterlab/secrets/EARTHLY_TOKEN/versions/2
     env: 'EARTHLY_TOKEN'
