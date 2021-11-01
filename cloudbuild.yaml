@@ -4,12 +4,15 @@ steps:
     args:
       - --allow-privileged
       - +docker
-    env:
-      - 'NETWORK_MODE=host'
+  
   - id: 'gcp-test'
     name: 'earthly/earthly:v0.5.24'
     args:
-      - --allow-privileged
       - +gcp-cloudbuild
-    env:
-      - 'NETWORK_MODE=host'
+    secretEnv:
+      - 'EARTHLY_TOKEN'
+    
+availableSecrets:
+  secretManager:
+  - versionName: projects/earthly-jupyterlab/secrets/EARTHLY_TOKEN/versions/2
+    env: 'EARTHLY_TOKEN'

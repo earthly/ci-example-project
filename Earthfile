@@ -18,6 +18,11 @@ docker:
     ENTRYPOINT ["/go-example/go-example"]
     SAVE IMAGE --push earthly/examples:go
 
+#####
+# Provider Specific Targets
+#####
+
+# Demo for Google Cloud Build, showing use of a dedicated service account
 gcp-cloudbuild:
     FROM gcr.io/cloud-builders/gsutil
-    RUN gsutil ls
+    RUN --mount type=secret,id=+secrets/earthly-technologies/google/cloudbuild-service-key,target=/root/key.json gcloud auth activate-service-account --key-file=/root/key.json && gsutil ls -p earthly-jupyterlab
