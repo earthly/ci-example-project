@@ -1,3 +1,5 @@
+VERSION 0.8
+
 FROM golang:1.16-alpine3.13
 WORKDIR /go-example
 
