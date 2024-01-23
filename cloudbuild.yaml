@@ -6,9 +6,15 @@ steps:
     args:
       - --allow-privileged
       - --ci
-      - --push
+      # - --push # Uncomment to allow GCP to push images to your choice of repository. Secrets for your repository must be configured.
       - +docker
   
+  - id: 'secrets'
+    name: 'earthly/earthly:v0.8.0'
+    entrypoint: earthly secrets ls
+    secretEnv:
+      - 'EARTHLY_TOKEN'
+
   - id: 'gcp-test'
     name: 'earthly/earthly:v0.8.0'
     env:
