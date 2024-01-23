@@ -1,14 +1,16 @@
 steps:
   - id: 'build'
-    name: 'earthly/earthly:v0.7.23'
+    name: 'earthly/earthly:v0.8.0'
     env:
       - "HOME=/root"
     args:
       - --allow-privileged
+      - --ci
+      - --push
       - +docker
   
   - id: 'gcp-test'
-    name: 'earthly/earthly:v0.7.23'
+    name: 'earthly/earthly:v0.8.0'
     env:
       - "HOME=/root"
       - "EARTHLY_PROJECT=cloud"
